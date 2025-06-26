@@ -82,21 +82,41 @@ usuário, para adivinhar. Use while para repetir até acertar, contando
 
  // Posso perder a questão por não utilizar if/else :(
 
-let message = "olá olá mundo mundo"
+// let message = "olá olá mundo mundo"
 
-function uniqueWords(str) {
-    let arr_strings = str.split(" ")
-    set_strings = new Set(arr_strings)
+// function uniqueWords(str) {
+//     let arr_strings = str.split(" ")
+//     set_strings = new Set(arr_strings)
 
-    for (let item of set_strings) console.log(item);
+//     for (let item of set_strings) console.log(item);
+// }
+
+// uniqueWords(message)
+//refs: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+/* Seção 2: Funções e Recursão
+4. Fatorial Recursivo
+Implemente function fatorial(n) de forma recursiva; trate n < 0 lançando
+um Error, e n === 0 retornando 1. */
+
+function factorial(n){
+    if(n < 0){
+        throw new Error("fatorial não funciona para números negativos")
+    }
+
+    if(n === 0){
+        return 1
+    }
+
+    return n * factorial(n-1)
 }
 
-uniqueWords(message)
+try {
+  console.log(`O fatorial de 5 é: ${factorial(5)}`);
+} catch(err){
+    console.error(`Erro: ${err.message}`)
+}
 
-// Seção 2: Funções e Recursão
-// 4. Fatorial Recursivo
-// Implemente function fatorial(n) de forma recursiva; trate n < 0 lançando
-// um Error, e n === 0 retornando 1.
 // 5. Debounce
 // Crie function debounce(fn, delay) que receba uma função fn e um delay
 // em ms, retornando uma nova função que só executa fn se não for
