@@ -1,39 +1,84 @@
+const prompt = require("prompt-sync")()
+
 // 1. Validação de Datas
 /* Crie a função isValidData(dia, mes, ano) que retorne true se os valores
  formarem uma data real (meses de 28–31 dias, ano bissexto para
  fevereiro) e false caso contrário. */
-console.log("Hello World!")
 
-function isLeapYear(yyyy) {
-    return (yyyy % 4 === 0 && yyyy % 100 !== 0) || (yyyy % 400 === 0);
+// console.log("Hello World!")
+
+// function isLeapYear(yyyy) {
+//     return (yyyy % 4 === 0 && yyyy % 100 !== 0) || (yyyy % 400 === 0);
+// }
+// function isValidData(dd, mm, yyyy) {
+//     if (mm < 1 || mm > 12 || dd < 1 || yyyy < 1) {
+//         return false;
+//     }
+
+//     const dayInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+//     if (isLeapYear(yyyy)){
+//         dayInMonth[2] = 29
+//     }
+
+//     return dd <= dayInMonth[mm]
+
+// }
+
+
+// console.log(`A data 20/13/2023 é real? ${isValidData(20, 13, 2023)}`); // false
+// console.log(`A data 29/02/2024 é real? ${isValidData(29, 2, 2024)}`); // true (2024 é bissexto)
+// console.log(`A data 29/02/2023 é real? ${isValidData(29, 2, 2023)}`); // false (2023 não é bissexto)
+
+/* 2. Jogo de Adivinhação
+Escreva um script que gere um número aleatório de 1 a 100 e peça ao
+usuário, para adivinhar. Use while para repetir até acertar, contando
+ tentativas e exibindo “mais alto” ou “mais baixo” a cada palpite errado. */
+let count = 0
+let randomNumber = NaN
+let guess = null
+let hit = false
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
-function isValidData(dd, mm, yyyy) {
-    if (mm < 1 || mm > 12 || dd < 1 || yyyy < 1) {
-        return false;
+
+console.log("Seja bem-vindo ao jogo de adivinhação")
+randomNumber = getRandomInt(100
+
+)
+console.log(randomNumber);
+
+function guessingGame() {
+    count++
+    
+    guess = parseInt(prompt("Infome seu palpite: "))
+    // console.log(guess)
+    // console.log(typeof guess)
+
+    if (isNaN(guess)) {
+        console.log("Entrada errada. Digite um numero")
     }
 
-    const dayInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-    if (isLeapYear(yyyy)){
-        dayInMonth[2] = 29
+    if (guess === randomNumber) {
+        hit = true
+        console.log(`Voce Acertou em ${count} tentativas!`)
+    }else if (guess > randomNumber){
+        console.log("Palpite é mais alto")
+    }else{
+        console.log("Palpite é mais baixo")
     }
+}
 
-    return dd <= dayInMonth[mm]
-
+while (hit === false) {
+    guessingGame()
 }
 
 
-console.log(`A data 20/13/2023 é real? ${isValidData(20, 13, 2023)}`); // false
-console.log(`A data 29/02/2024 é real? ${isValidData(29, 2, 2024)}`); // true (2024 é bissexto)
-console.log(`A data 29/02/2023 é real? ${isValidData(29, 2, 2023)}`); // false (2023 não é bissexto)
 
-// 2. Jogo de Adivinhação
-// Escreva um script que gere um número aleatório de 1 a 100 e peça ao
-// usuário, para adivinhar. Use while para repetir até acertar, contando
-// tentativas e exibindo “mais alto” ou “mais baixo” a cada palpite errado.
-// 3. Palavras Únicas
-// Dada uma string (ex.: "olá olá mundo mundo"), use if/else e for para extrair
-// todas as palavras únicas e exibi-las em um array.
+/* 3. Palavras Únicas
+ Dada uma string (ex.: "olá olá mundo mundo"), use if/else e for para extrair
+ todas as palavras únicas e exibi-las em um array.*/
 
 // Seção 2: Funções e Recursão
 // 4. Fatorial Recursivo
