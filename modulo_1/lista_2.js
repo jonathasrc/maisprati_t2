@@ -34,51 +34,64 @@ const prompt = require("prompt-sync")()
 Escreva um script que gere um número aleatório de 1 a 100 e peça ao
 usuário, para adivinhar. Use while para repetir até acertar, contando
  tentativas e exibindo “mais alto” ou “mais baixo” a cada palpite errado. */
-let count = 0
-let randomNumber = NaN
-let guess = null
-let hit = false
+// let count = 0
+// let randomNumber = NaN
+// let guess = null
+// let hit = false
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+// function getRandomInt(max) {
+//   return Math.floor(Math.random() * max);
+// }
 
-console.log("Seja bem-vindo ao jogo de adivinhação")
-randomNumber = getRandomInt(100
+// console.log("Seja bem-vindo ao jogo de adivinhação")
+// randomNumber = getRandomInt(100
 
-)
-console.log(randomNumber);
+// )
+// console.log(randomNumber);
 
-function guessingGame() {
-    count++
-    
-    guess = parseInt(prompt("Infome seu palpite: "))
-    // console.log(guess)
-    // console.log(typeof guess)
+// function guessingGame() {
+//     count++
 
-    if (isNaN(guess)) {
-        console.log("Entrada errada. Digite um numero")
-    }
+//     guess = parseInt(prompt("Infome seu palpite: "))
+//     // console.log(guess)
+//     // console.log(typeof guess)
 
-    if (guess === randomNumber) {
-        hit = true
-        console.log(`Voce Acertou em ${count} tentativas!`)
-    }else if (guess > randomNumber){
-        console.log("Palpite é mais alto")
-    }else{
-        console.log("Palpite é mais baixo")
-    }
-}
+//     if (isNaN(guess)) {
+//         console.log("Entrada errada. Digite um numero")
+//     }
 
-while (hit === false) {
-    guessingGame()
-}
+//     if (guess === randomNumber) {
+//         hit = true
+//         console.log(`Voce Acertou em ${count} tentativas!`)
+//     }else if (guess > randomNumber){
+//         console.log("Palpite é mais alto")
+//     }else{
+//         console.log("Palpite é mais baixo")
+//     }
+// }
+
+// while (hit === false) {
+//     guessingGame()
+// }
 
 
 
 /* 3. Palavras Únicas
  Dada uma string (ex.: "olá olá mundo mundo"), use if/else e for para extrair
  todas as palavras únicas e exibi-las em um array.*/
+
+ // Posso perder a questão por não utilizar if/else :(
+
+let message = "olá olá mundo mundo"
+
+function uniqueWords(str) {
+    let arr_strings = str.split(" ")
+    set_strings = new Set(arr_strings)
+
+    for (let item of set_strings) console.log(item);
+}
+
+uniqueWords(message)
 
 // Seção 2: Funções e Recursão
 // 4. Fatorial Recursivo
