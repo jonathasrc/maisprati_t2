@@ -111,16 +111,39 @@ function factorial(n){
     return n * factorial(n-1)
 }
 
-try {
-  console.log(`O fatorial de 5 é: ${factorial(5)}`);
-} catch(err){
-    console.error(`Erro: ${err.message}`)
-}
+// try {
+//   console.log(`O fatorial de 5 é: ${factorial(5)}`);
+// } catch(err){
+//     console.error(`Erro: ${err.message}`)
+// }
 
 // 5. Debounce
 // Crie function debounce(fn, delay) que receba uma função fn e um delay
 // em ms, retornando uma nova função que só executa fn se não for
 // chamada novamente dentro do intervalo.
+// refs: https://medium.com/@vemlavaralouca/debounce-javascript-b4c99ec4b13f
+const logFactorial = () => {
+    console.log(factorial(5))
+    console.log("Isso foi executado apos 500ms")
+}
+
+function debounce(func, delay) {
+  let timeoutId;
+
+  return function (...args) {
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+const debounceLogFactorial = debounce(logFactorial, 500)
+debounceLogFactorial()
+
+
+
 // 6. Memoization
 // Implemente function memoize(fn) que armazene em cache chamadas
 // anteriores de fn (por argumentos), retornando resultados instantâneos em
