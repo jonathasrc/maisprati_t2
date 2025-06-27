@@ -80,7 +80,7 @@ usuário, para adivinhar. Use while para repetir até acertar, contando
  Dada uma string (ex.: "olá olá mundo mundo"), use if/else e for para extrair
  todas as palavras únicas e exibi-las em um array.*/
 
- // Posso perder a questão por não utilizar if/else :(
+// Posso perder a questão por não utilizar if/else :(
 
 // let message = "olá olá mundo mundo"
 
@@ -149,47 +149,65 @@ Implemente function memoize(fn) que armazene em cache chamadas
 anteriores de fn (por argumentos), retornando resultados instantâneos em
 repetidas invocações. */
 
-const memoize = fn => {
-  const cache = new Map();
-  
-  return (...args) => {
-    const key = `key-${args.join('-')}`;
-    
-    if(!!cache[key]) {
-      console.log('retornando do cache')
-      console.log(cache[key])
-      return cache[key]
-    }
-   
-    const result = fn && fn(...args);
-    console.log('executando funcao')
-    cache[key] = result;
-    console.log(key, result)
-    return result;
-  }
-}
+// refs: https://medium.com/trainingcenter/memoization-com-javascript-direto-ao-ponto-82044cf100c7
 
-const sumNumber = (a,b) => {
-  return a + b;
-}
+// const memoize = fn => {
+//     const cache = new Map();
 
-const memoizer = memoize(sumNumber); //criando a instancia do memoizer configurado para a função somarNumeros
+//     return (...args) => {
+//         const key = `key-${args.join('-')}`;
 
-memoizer(2,2); // executando função
-memoizer(2,2); // retornando do cache
+//         if (!!cache[key]) {
+//             console.log('retornando do cache')
+//             console.log(cache[key])
+//             return cache[key]
+//         }
+
+//         const result = fn && fn(...args);
+//         console.log('executando funcao')
+//         cache[key] = result;
+//         console.log(key, result)
+//         return result;
+//     }
+// }
+
+// const sumNumber = (a, b) => {
+//     return a + b;
+// }
+
+// const memoizer = memoize(sumNumber); //criando a instancia do memoizer configurado para a função somarNumeros
+
+// memoizer(2, 2); 
+// memoizer(2, 2);
 
 // Seção 3: Arrays e Objetos Complexos
-// 7. Mapeamento e Ordenação
-// Dado um array produtos = [{ nome, preco }, ...], crie uma função que
-// retorne um novo array apenas com os no, ordenados por preço
-// crescente, usando map, sort.
+/* 7. Mapeamento e Ordenação
+Dado um array produtos = [{ nome, preco }, ...], crie uma função que
+retorne um novo array apenas com os no, ordenados por preço
+crescente, usando map, sort. */
+// refs:// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+// const products = [
+//     { nome: 'Teclado', preco: 120.50 },
+//     { nome: 'Mouse', preco: 50.00 },
+//     { nome: 'Monitor', preco: 750.99 },
+//     { nome: 'Computador', preco: 1500.00 },
+//     { nome: 'Cadeira', preco: 450.00 }
+// ]
+
+// const productsCopy = [...products]
+// const productsOrdered = productsCopy.sort((a,b) => a.preco - b.preco)
+// const namesOrdered = productsOrdered.map(products => products.nome)
+// console.log(namesOrdered)
+
+
 // 8. Agrupamento por Propriedade
 // Em vendas = [{ cliente, total }, ...], use reduce para gerar um objeto onde
 // cada chave é um cliente e o valor é a soma de todos os seus total.
 // 9. Conversão Entre Formatos
 // Escreva duas funções:
 
-// ○ paresParaObjeto(pares) recebe um array de pares [ [chave,
+// ○ paresParaObjeto(produtospares) recebe um array de pares [ [chave,
 // valor], ... ] e retorna o objeto equivalente.
 // ○ objetoParaPares(obj) faz o inverso, retornando um array de
 // pares.
