@@ -204,31 +204,31 @@ crescente, usando map, sort. */
 /* 8. Agrupamento por Propriedade
 Em vendas = [{ client, amount }, ...], use reduce para gerar um objeto onde
 cada chave é um client e o valor é a soma de todos os seus amount. */
-const sales = [
-  { client: 'Ana', amount: 100 },
-  { client: 'Bruno', amount: 250 },
-  { client: 'Ana', amount: 50 },
-  { client: 'Carlos', amount: 120 },
-  { client: 'Bruno', amount: 150 },
-  { client: 'Ana', amount: 75 }
-];
+// const sales = [
+//   { client: 'Ana', amount: 100 },
+//   { client: 'Bruno', amount: 250 },
+//   { client: 'Ana', amount: 50 },
+//   { client: 'Carlos', amount: 120 },
+//   { client: 'Bruno', amount: 150 },
+//   { client: 'Ana', amount: 75 }
+// ];
 
-function groupSalesByCustomer (sales){
-    return sales.reduce((accumulator,sale) => {
-        const {client, amount} = sale
+// function groupSalesByCustomer (sales){
+//     return sales.reduce((accumulator,sale) => {
+//         const {client, amount} = sale
 
-        if (accumulator[client]){
-            accumulator[client] += amount
-        } else{
-            accumulator[client] = amount
-        }
+//         if (accumulator[client]){
+//             accumulator[client] += amount
+//         } else{
+//             accumulator[client] = amount
+//         }
 
-        return accumulator
-    }, {});
-}
+//         return accumulator
+//     }, {});
+// }
 
-const amountByClient = groupSalesByCustomer(sales)
-console.log(amountByClient)
+// const amountByClient = groupSalesByCustomer(sales)
+// console.log(amountByClient)
 
 
 // 9. Conversão Entre Formatos
@@ -238,3 +238,26 @@ console.log(amountByClient)
 // valor], ... ] e retorna o objeto equivalente.
 // ○ objetoParaPares(obj) faz o inverso, retornando um array de
 // pares.
+
+//refs: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+function pairForObject(obj){
+    return Object.entries(obj)
+}
+
+function arrForObject(arr){
+    return Object.fromEntries(arr)
+}
+
+
+const product = {
+  name: 'Notebook ',
+  price: 5500.99,
+  status: 'new'
+};
+
+const productsPair = pairForObject(product)
+console.log(productsPair)
+
+const objectPair = arrForObject(productsPair)
+console.log(objectPair)
+
