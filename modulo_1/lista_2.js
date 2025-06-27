@@ -201,9 +201,36 @@ crescente, usando map, sort. */
 // console.log(namesOrdered)
 
 
-// 8. Agrupamento por Propriedade
-// Em vendas = [{ cliente, total }, ...], use reduce para gerar um objeto onde
-// cada chave é um cliente e o valor é a soma de todos os seus total.
+/* 8. Agrupamento por Propriedade
+Em vendas = [{ client, amount }, ...], use reduce para gerar um objeto onde
+cada chave é um client e o valor é a soma de todos os seus amount. */
+const sales = [
+  { client: 'Ana', amount: 100 },
+  { client: 'Bruno', amount: 250 },
+  { client: 'Ana', amount: 50 },
+  { client: 'Carlos', amount: 120 },
+  { client: 'Bruno', amount: 150 },
+  { client: 'Ana', amount: 75 }
+];
+
+function groupSalesByCustomer (sales){
+    return sales.reduce((accumulator,sale) => {
+        const {client, amount} = sale
+
+        if (accumulator[client]){
+            accumulator[client] += amount
+        } else{
+            accumulator[client] = amount
+        }
+
+        return accumulator
+    }, {});
+}
+
+const amountByClient = groupSalesByCustomer(sales)
+console.log(amountByClient)
+
+
 // 9. Conversão Entre Formatos
 // Escreva duas funções:
 
