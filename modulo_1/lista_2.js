@@ -99,17 +99,17 @@ usuário, para adivinhar. Use while para repetir até acertar, contando
 Implemente function fatorial(n) de forma recursiva; trate n < 0 lançando
 um Error, e n === 0 retornando 1. */
 
-function factorial(n){
-    if(n < 0){
-        throw new Error("fatorial não funciona para números negativos")
-    }
+// function factorial(n){
+//     if(n < 0){
+//         throw new Error("fatorial não funciona para números negativos")
+//     }
 
-    if(n === 0){
-        return 1
-    }
+//     if(n === 0){
+//         return 1
+//     }
 
-    return n * factorial(n-1)
-}
+//     return n * factorial(n-1)
+// }
 
 // try {
 //   console.log(`O fatorial de 5 é: ${factorial(5)}`);
@@ -122,32 +122,61 @@ function factorial(n){
 // em ms, retornando uma nova função que só executa fn se não for
 // chamada novamente dentro do intervalo.
 // refs: https://medium.com/@vemlavaralouca/debounce-javascript-b4c99ec4b13f
-const logFactorial = () => {
-    console.log(factorial(5))
-    console.log("Isso foi executado apos 500ms")
+// const logFactorial = () => {
+//     console.log(factorial(5))
+//     console.log("Isso foi executado apos 500ms")
+// }
+
+// function debounce(func, delay) {
+//   let timeoutId;
+
+//   return function (...args) {
+//     clearTimeout(timeoutId);
+
+//     timeoutId = setTimeout(() => {
+//       func.apply(this, args);
+//     }, delay);
+//   };
+// }
+
+// const debounceLogFactorial = debounce(logFactorial, 5000)
+// debounceLogFactorial()
+
+
+
+/* 6. Memoization
+Implemente function memoize(fn) que armazene em cache chamadas
+anteriores de fn (por argumentos), retornando resultados instantâneos em
+repetidas invocações. */
+
+const memoize = fn => {
+  const cache = new Map();
+  
+  return (...args) => {
+    const key = `key-${args.join('-')}`;
+    
+    if(!!cache[key]) {
+      console.log('retornando do cache')
+      console.log(cache[key])
+      return cache[key]
+    }
+   
+    const result = fn && fn(...args);
+    console.log('executando funcao')
+    cache[key] = result;
+    console.log(key, result)
+    return result;
+  }
 }
 
-function debounce(func, delay) {
-  let timeoutId;
-
-  return function (...args) {
-    clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
-  };
+const sumNumber = (a,b) => {
+  return a + b;
 }
 
-const debounceLogFactorial = debounce(logFactorial, 500)
-debounceLogFactorial()
+const memoizer = memoize(sumNumber); //criando a instancia do memoizer configurado para a função somarNumeros
 
-
-
-// 6. Memoization
-// Implemente function memoize(fn) que armazene em cache chamadas
-// anteriores de fn (por argumentos), retornando resultados instantâneos em
-// repetidas invocações.
+memoizer(2,2); // executando função
+memoizer(2,2); // retornando do cache
 
 // Seção 3: Arrays e Objetos Complexos
 // 7. Mapeamento e Ordenação
