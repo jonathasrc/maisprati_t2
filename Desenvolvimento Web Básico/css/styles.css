@@ -1,0 +1,8 @@
+header {
+    background-color: #494d4b;
+    color: #e2cb92;
+    padding: 3px 3px 3px 3px solid #312c20;
+    margin: 3px 3px 3px 3px solid red;
+    border: 3px 3px 3px 3px solid blue;
+    text-align: center;
+}
