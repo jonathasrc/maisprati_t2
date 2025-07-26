@@ -1,8 +1,45 @@
+body div {
+    background-color: red;
+    padding: 1px;
+    margin: 10px;
+}
+
+h2 {
+    font-size: xx-large;
+    text-decoration: underline wavy red;
+}
+
 header {
     background-color: #494d4b;
-    color: #e2cb92;
-    padding: 3px 3px 3px 3px solid #312c20;
-    margin: 3px 3px 3px 3px solid red;
-    border: 3px 3px 3px 3px solid blue;
+    /* color: #e2cb92; */
+    padding: 30px;
+    margin: 1%;
+    border: 10px solid blue;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
     text-align: center;
 }
+
+main {
+    background-color: #494d4b;
+    padding: 20px;
+    margin: 1%;
+    border: 10px solid blue ;
+}
+
+footer {
+    background-color: #494d4b;
+    padding: auto;
+    margin: 1%;
+    border: 10px solid blue;
+}
+
+.destaque {
+    font-style: italic 40deg;
+    background-color: #f0f0f0;
+}
+
+#importante {
+    border-top: 5px solid black;
+}
+
