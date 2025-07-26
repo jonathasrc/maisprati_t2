@@ -1,0 +1,31 @@
+
+body {
+  font-family: "Roboto Serif", serif;
+  font-size: 16px;
+}
+
+h1 {
+    font-size: 300%;
+}
+h2 {
+    font-size: 150%;
+}
+
+main {
+  padding: 20px;
+}
+
+header {
+    margin: 10px;
+    padding: 10px;
+}
+header h1 {
+    margin: 5px 5px 5px 5px;
+    padding: 1px 1px 1px 1px;
+    border: 1px solid blue;
+}
+header p {
+    margin: 1px 1px 1px 10px;
+    border: 1px solid red;
+    padding: 1px 1px 1px 1px;
+}
