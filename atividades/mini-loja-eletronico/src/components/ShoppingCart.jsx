@@ -1,6 +1,5 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import styles from '../styles/ShoppingCart.module.css'; 
 
 const ShoppingCart = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -11,30 +10,31 @@ const ShoppingCart = () => {
   );
 
   return (
-    <aside className={styles.shoppingCart}>
-      <h2>Carrinho de Compras</h2>
+    <aside className="flex-auto min-w-[280px] bg-light-card dark:bg-dark-card p-6 rounded-lg shadow-md self-start border border-gray-200 dark:border-dark-card">
+      <h2 className="text-xl font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-600">Carrinho de Compras</h2>
       {cartItems.length === 0 ? (
-        <p>Seu carrinho está vazio.</p>
+        <p className="text-gray-500 dark:text-gray-400">Seu carrinho está vazio.</p>
       ) : (
         <div>
-          <ul>
+          <ul className="space-y-4">
             {cartItems.map((item) => (
-              <li key={item.id}>
-                <span>{item.name} (x{item.quantity})</span>
-                <span>R$ {(item.price * item.quantity).toFixed(2)}</span>
+              <li key={item.id} className="flex justify-between items-center text-sm">
+                <span className="flex-grow pr-4">{item.name} (x{item.quantity})</span>
+                <span className="font-semibold">R$ {(item.price * item.quantity).toFixed(2)}</span>
                 <button
                   onClick={() => removeFromCart(item.id)}
                   aria-label={`Remover ${item.name} do carrinho`}
+                  className="ml-2 text-danger text-xl hover:text-red-800 transition-transform hover:scale-110"
                 >
                   &times;
                 </button>
               </li>
             ))}
           </ul>
-          <hr />
-          <div className={styles.cartTotal}>
-            <strong>Total:</strong>
-            <strong>R$ {totalPrice.toFixed(2)}</strong>
+          <hr className="my-4 border-gray-200 dark:border-gray-600" />
+          <div className="flex justify-between font-bold text-lg">
+            <span>Total:</span>
+            <span>R$ {totalPrice.toFixed(2)}</span>
           </div>
         </div>
       )}

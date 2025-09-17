@@ -3,13 +3,12 @@ import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/ShoppingCart';
 import Footer from './components/Footer';
-import styles from './styles/App.module.css';
 
 function App() {
   return (
-    <div className={styles.appContainer}>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className={styles.mainContent}>
+      <main className="flex-1 flex flex-wrap gap-8 p-8 mt-[70px]">
         <ProductList />
         <ShoppingCart />
       </main>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { products as mockProducts } from '../data/products';
 import ProductCard from './ProductCard';
 import ProductSkeleton from './ProductSkeleton';
-import styles from '../styles/ProductList.module.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +12,6 @@ const ProductList = () => {
       setProducts(mockProducts);
       setLoading(false);
     }, 2000);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -21,7 +19,7 @@ const ProductList = () => {
 
   return (
     <div 
-      className={styles.productList}
+      className="flex-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-w-[300px]"
       aria-busy={loading}
       aria-live="polite"
     >

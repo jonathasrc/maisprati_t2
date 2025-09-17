@@ -16,8 +16,11 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    document.body.className = '';
-    document.body.classList.add(`${theme}-theme`);
+    const root = window.document.documentElement;
+    
+    root.classList.remove(theme === 'light' ? 'dark' : 'light');
+    root.classList.add(theme);
+
   }, [theme]);
 
   return (

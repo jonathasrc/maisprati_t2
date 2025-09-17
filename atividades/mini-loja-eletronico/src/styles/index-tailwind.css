@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Add these classes to your <body> element in your HTML/JSX:
+     class="font-sans bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-200"
+  */
+}
