@@ -1,0 +1,67 @@
+.skeletonCard {
+  border-color: var(--border-color);
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, var(--skeleton-base) 8%, var(--skeleton-highlight) 18%, var(--skeleton-base) 33%);
+  background-size: 2000px 100%;
+  border-radius: 4px;
+}
+
+.imageWrapper {
+  composes: skeleton;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.details {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.text {
+  composes: skeleton;
+  height: 1em;
+  width: 100%;
+}
+
+.short {
+  composes: text;
+  width: 70%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price {
+  composes: skeleton;
+  width: 50%;
+  height: 1.3em;
+}
+
+.rating {
+  composes: skeleton;
+  width: 30%;
+  height: 1em;
+}
+
+.button {
+  composes: skeleton;
+  height: 52px;
+  width: 100%;
+  border-radius: 0 0 6px 6px;
+}

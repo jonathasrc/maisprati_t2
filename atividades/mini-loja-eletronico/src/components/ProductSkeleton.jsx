@@ -1,18 +1,19 @@
 import React from 'react';
+import styles from '../styles/ProductSkeleton.module.css';
 
 const ProductSkeleton = () => {
   return (
-    <div className="product-card skeleton-card">
-      <div className="product-image-wrapper skeleton"></div>
-      <div className="product-details">
-        <div className="skeleton skeleton-text"></div>
-        <div className="skeleton skeleton-text short"></div>
-        <div className="product-footer">
-          <div className="skeleton skeleton-text price"></div>
-          <div className="skeleton skeleton-text rating"></div>
+    <div className={styles.skeletonCard}>
+      <div className={styles.imageWrapper}></div>
+      <div className={styles.details}>
+        <div className={styles.text}></div>
+        <div className={styles.short}></div>
+        <div className={styles.footer}>
+          <div className={styles.price}></div>
+          <div className={styles.rating}></div>
         </div>
       </div>
-      <div className="skeleton skeleton-button"></div>
+      <div className={styles.button}></div>
     </div>
   );
 };

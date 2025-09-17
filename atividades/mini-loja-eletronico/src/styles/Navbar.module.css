@@ -1,0 +1,75 @@
+.navbar {
+  background-color: var(--header-footer-bg);
+  color: var(--header-footer-text);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow-base);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo a {
+  color: var(--header-footer-text);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.themeToggle {
+  background: none;
+  border: 1px solid var(--header-footer-text);
+  color: var(--header-footer-text);
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.themeToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.cartBadge {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: var(--danger-color);
+  color: white;
+  border-radius: 50%;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 2px solid var(--header-footer-bg);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.visible {
+  transform: scale(1);
+  opacity: 1;
+}

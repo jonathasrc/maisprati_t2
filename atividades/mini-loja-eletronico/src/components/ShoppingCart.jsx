@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
+import styles from '../styles/ShoppingCart.module.css'; 
 
 const ShoppingCart = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -10,7 +11,7 @@ const ShoppingCart = () => {
   );
 
   return (
-    <aside className="shopping-cart">
+    <aside className={styles.shoppingCart}>
       <h2>Carrinho de Compras</h2>
       {cartItems.length === 0 ? (
         <p>Seu carrinho está vazio.</p>
@@ -31,7 +32,7 @@ const ShoppingCart = () => {
             ))}
           </ul>
           <hr />
-          <div className="cart-total">
+          <div className={styles.cartTotal}>
             <strong>Total:</strong>
             <strong>R$ {totalPrice.toFixed(2)}</strong>
           </div>

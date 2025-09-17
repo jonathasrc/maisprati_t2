@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
+import styles from '../styles/Navbar.module.css';
 
 const Navbar = () => {
   const { cartItems } = useCart();
@@ -9,27 +10,27 @@ const Navbar = () => {
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <nav className="app-navbar">
-      <div className="navbar-logo">
-        <a href="/">EletronoStore</a>
+    <nav className={styles.navbar}>
+      <div className={styles.logo}>
+        <a href="/">Mini Loja Eletrônicos</a>
       </div>
-      <div className="navbar-actions">
+      <div className={styles.actions}>
         <button
           onClick={toggleTheme}
-          className="theme-toggle"
+          className={styles.themeToggle}
           aria-label={`Ativar tema ${theme === 'light' ? 'escuro' : 'claro'}`}
           aria-pressed={theme === 'dark'}
         >
           {theme === 'light' ? '🌙' : '☀️'}
         </button>
         <div 
-          className="cart-badge"
+          className={styles.cartBadge}
           role="status"
           aria-label={`Carrinho de compras com ${totalItems} itens`}
         >
           <span>🛒</span>
           <span 
-            className={`badge ${totalItems > 0 ? 'visible' : ''}`} 
+            className={`${styles.badge} ${totalItems > 0 ? styles.visible : ''}`} 
             aria-hidden="true"
           >
             {totalItems}

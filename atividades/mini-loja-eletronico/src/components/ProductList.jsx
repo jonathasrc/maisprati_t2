@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { products as mockProducts } from '../data/products';
 import ProductCard from './ProductCard';
 import ProductSkeleton from './ProductSkeleton';
+import styles from '../styles/ProductList.module.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ const ProductList = () => {
 
   return (
     <div 
-      className="product-list"
+      className={styles.productList}
       aria-busy={loading}
       aria-live="polite"
     >

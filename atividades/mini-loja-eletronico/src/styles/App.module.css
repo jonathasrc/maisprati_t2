@@ -1,0 +1,14 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 2rem;
+  gap: 2rem;
+  margin-top: 70px;
+}

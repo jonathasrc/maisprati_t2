@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
+import styles from '../styles/ProductCard.module.css';
 
 const ProductCard = ({ product }) => {
   const { cartItems, addToCart } = useCart();
@@ -7,14 +8,15 @@ const ProductCard = ({ product }) => {
   const isProductInCart = cartItems.some((item) => item.id === product.id);
   const isOutOfStock = product.stock === 0;
 
-  let buttonClassName = 'btn-solid';
+  // CORREÇÃO 1: Usar o objeto 'styles' para as classes do botão
+  let buttonClassName = styles.btnSolid;
   let buttonText = 'Adicionar';
 
   if (isOutOfStock) {
-    buttonClassName = 'btn-disabled';
+    buttonClassName = styles.btnDisabled; // Adicione esta classe ao seu CSS se não existir
     buttonText = 'Sem estoque';
   } else if (isProductInCart) {
-    buttonClassName = 'btn-outline';
+    buttonClassName = styles.btnOutline;
     buttonText = 'Adicionado ✔';
   }
 
@@ -31,27 +33,34 @@ const ProductCard = ({ product }) => {
     }
   };
 
+  // CORREÇÃO 2: Combinar classes de forma segura
+  const cardClasses = [
+    styles.productCard,
+    styles.loaded,
+    isOutOfStock ? styles.disabled : ''
+  ].join(' ');
+
   return (
     <div 
-      className={`product-card loaded ${isOutOfStock ? 'disabled' : ''}`}
+      className={cardClasses}
       tabIndex={isOutOfStock ? -1 : 0}
       role="group"
       aria-labelledby={`product-title-${product.id}`}
       onKeyDown={handleKeyDown}
     >
-      {product.tag && <div className="product-tag">{product.tag}</div>}
-      {isOutOfStock && <div className="disabled-overlay">SEM ESTOQUE</div>}
+      {product.tag && <div className={styles.tag}>{product.tag}</div>}
+      {isOutOfStock && <div className={styles.disabledOverlay}>SEM ESTOQUE</div>}
 
-      <div className="product-image-wrapper">
-        <img src={product.image} alt={product.name} />
+      <div className={styles.imageWrapper}>
+        <img src={product.image} alt={product.name} loading="lazy" decoding="async" />
       </div>
 
-      <div className="product-details">
+      <div className={styles.details}>
         <h3 id={`product-title-${product.id}`} title={product.name}>{product.name}</h3>
         
-        <div className="product-footer">
-          <p className="price">R$ {product.price.toFixed(2)}</p>
-          <div className="product-rating">
+        <div className={styles.footer}>
+          <p className={styles.price}>R$ {product.price.toFixed(2)}</p>
+          <div className={styles.rating}>
             <span>★</span> {product.rating.toFixed(1)}
           </div>
         </div>
